@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: $bodyBG;
+    color: $bodyText;
+    font-family: 'Roboto', sans-serif;
+}
+
+.taskList {
+    max-width: 800px;
+    margin: 50px auto 0;
+    background: $cardBG;
+    border-radius: $cardRadius;
+    padding: $cardPadding;
+    .single-task {
+        display: flex;
+        margin: 10px 0;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            color: $bodyText;
+            text-decoration: none;
+            font-size: clamp(16px, 1.25vw, 24px);
+            font-weight: 600;
+            display: block;
+            &:hover {
+                color: $linkCol;
+            }
+        }
+        .status {
+            display: flex;
+            gap: 30px;
+            justify-content: space-between;
+            align-items: center;
+            span {
+                display: block;
+            }
+            .red {
+                color: $linkCol;
+            }
+            .green {
+                color: #a9c87f;
+            }
+        }
+    }
+    label {
+        display: block;
+        margin: 10px 0;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    textarea, input, select {
+        padding: 10px;
+        border-radius: 10px;
+        display: block;
+        border: 1px solid $cardBG;
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+        &:focus {
+            outline: none;
+            border: 1px solid #a9c87f;
+            box-shadow: 0px 0px 5px 0px #a9c87f;
+        }
+    }
+    button {
+        &:not(.icon) {
+            padding: 10px 30px;
+            border-radius: 30px;
+            display: block;
+            margin: 20px auto 10px;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+
+            &:not(.delete) {
+                border: 1px solid #a9c87f;
+                background: #a9c87f;
+
+                &:hover {
+                    border: 1px solid darken(#a9c87f, 10);
+                    background: darken(#a9c87f, 10);
+                }
+            }
+
+            &.delete {
+                border: 1px solid $linkCol;
+                background: $linkCol;
+                color: white;
+
+                &:hover {
+                    border: 1px solid darken($linkCol, 10);
+                    background: darken($linkCol, 10);
+                }
+            }
+        }
+        &.icon {
+            display: inline-block;
+            background: none;
+            border: none;
+            color: red;
+            font-size: 24px;
+            cursor: pointer;
+            .fa-circle-check {
+                color: green;
+            }
+        }
+    }
+    p.error {
+        color: $linkCol;
+        margin-top: 4px;
+        font-size: 14px;
+        font-style: italic;
+    }
+}
+.toast {
+    position: fixed;
+    top: 75px;
+    background: #a9c87f;
+    color: $bodyBG;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    animation: fadeOut 0.5s 5s linear forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.pagination {
+    nav {
+        svg {
+            max-height: 20px;
+        }
+    }
+}
+
+.mgmt {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid white;
+    text-align: right;
+    a {
+        padding: 10px 30px;
+        border-radius: 30px;
+        margin: 20px auto 10px;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+        border: 1px solid #a9c87f;
+        background: #a9c87f;
+        color: $bodyBG;
+        text-decoration: none;
+        &:hover {
+            border: 1px solid darken(#a9c87f, 10);
+            background: darken(#a9c87f, 10);
+        }
+    }
+}
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .edit {
+        color: white;
+        background: darkorange;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 30px;
+        i {
+            margin-left: 10px;
+        }
+
+    }
+}
+.goback {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    a {
+        color: white;
+        background: deepskyblue;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 30px;
+        i {
+            margin-right: 10px;
+        }
+
+    }
+}
+
